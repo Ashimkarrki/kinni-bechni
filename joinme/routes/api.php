@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\authentication;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,3 +23,4 @@ Route::post('/signup', [authentication::class, "signup"]);
 Route::post('/login', [authentication::class, "login"]);
 Route::get('/logout', [authentication::class, "logout"]);
 Route::get('login', [authentication::class, "logined"]);
+Route::post('/addproduct', [ProductController::class, 'addproduct']);
