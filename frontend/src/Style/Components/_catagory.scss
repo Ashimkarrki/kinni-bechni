@@ -1,0 +1,24 @@
+.category {
+  width: 15%;
+  height: 30rem;
+  background-color: beige;
+  padding: 1.8rem 1rem 0 1rem;
+  &__heading {
+    border-bottom: $box-border;
+  }
+  &__list {
+    padding-top: 1rem;
+    list-style: none;
+  }
+  &__item {
+    padding-top: 0.4rem;
+  }
+  &__link {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid white;
+    &:hover {
+      border-bottom: $box-border;
+    }
+  }
+}
