@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
+import { IoIosAdd } from "react-icons/io";
 import PostProduct from "./PostProduct";
 const Navbar = () => {
   const [ismodalOpen, setIsmodalOpen] = useState(false);
@@ -21,14 +22,12 @@ const Navbar = () => {
             placeholder="Search Anything"
           />
         </div>
-        <h3
-          className="navbar__child post__product"
+        <IoIosAdd
+          className="navbar__child post-product"
           onClick={() => {
             setIsmodalOpen(true);
           }}
-        >
-          Post Product
-        </h3>
+        />
         <h3 className="navbar__child">
           <Link className="link" to="/login">
             Log In

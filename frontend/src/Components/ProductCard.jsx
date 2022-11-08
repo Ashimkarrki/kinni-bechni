@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductCard = ({ image, name, price, stock, description, category }) => {
   return (
-    <div className="productCard">
+    <div className="productCard productCard--box-shadow">
       <div className="ribbon-wrapper">
         <p className="ribbon">{category}</p>
       </div>

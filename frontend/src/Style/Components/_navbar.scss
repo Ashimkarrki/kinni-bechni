@@ -8,6 +8,7 @@
   left: 0;
   background-color: aqua;
   z-index: 2;
+  gap: 1rem;
   width: 100%;
   &__child {
     &--center {
@@ -25,4 +26,10 @@
   border-radius: $box-radius;
   padding-left: 2rem;
   @include remove-outline;
+}
+.post-product {
+  font-size: 1.7rem;
+  &:hover {
+    cursor: pointer;
+  }
 }
