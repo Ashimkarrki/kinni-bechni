@@ -8,12 +8,12 @@ use App\Models\product;
 class ProductController extends Controller
 {
     public function homepage(Request $request){ 
-    $numbers = 0;
-    $data = array();
+    $numbers = 1;
     for ($id=454; $id<465; $id++){
         $datas = product::find($id);
 //        $prod_json = json("products"->$datas);
-        array_push($data, $datas);
+        $data[$numbers] = $datas;
+        $numbers++;
     }
     return response()->json($data);    
     }
