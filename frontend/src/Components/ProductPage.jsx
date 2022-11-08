@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
 import { CiFilter } from "react-icons/ci";
+import { v4 as uuidv4 } from "uuid";
+import ProductCard from "./ProductCard";
 const ProductPage = () => {
   var data = [];
   for (let i = 0; i < 10; i++) {
@@ -10,6 +12,7 @@ const ProductPage = () => {
       stock: faker.random.numeric(1),
       image: faker.image.cats(480, 720, true),
       description: faker.lorem.paragraph(),
+      id: uuidv4(),
     };
   }
   const [products] = useState(data);
@@ -24,17 +27,17 @@ const ProductPage = () => {
         </button>
       </div>
       <div className="productPage--grid">
-        {products.map((s, index) => {
+        {products.map((s) => {
           return (
-            <div className="productCard" key={index}>
-              {/* <div className="productCard--padding"> */}
-              <img className="productCard__image" src={s.image} alt="an pic" />
-              <h5>{s.name}</h5>
-              <h5>रु {s.price}</h5>
-              <h5>{s.stock}(In Stock)</h5>
-              <p className="productCard__description">{s.description}</p>
-              {/* </div> */}
-            </div>
+            <ProductCard
+              key={s.id}
+              image={s.image}
+              name={s.name}
+              price={s.price}
+              stock={s.stock}
+              description={s.description}
+              category={"Books"}
+            />
           );
         })}
       </div>

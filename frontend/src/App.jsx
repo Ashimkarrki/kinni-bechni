@@ -13,9 +13,11 @@ function App() {
       {location.pathname === "/signup" || location.pathname === "/login" ? (
         ""
       ) : (
-        <Navbar />
+        <>
+          <Navbar />
+          <Category />
+        </>
       )}
-      <Category />
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
