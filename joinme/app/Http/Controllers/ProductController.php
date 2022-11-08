@@ -7,6 +7,16 @@ use App\Models\product;
 
 class ProductController extends Controller
 {
+    public function homepage(Request $request){ 
+    $numbers = 0;
+    $data = array();
+    for ($id=454; $id<465; $id++){
+        $datas = product::find($id);
+//        $prod_json = json("products"->$datas);
+        array_push($data, $datas);
+    }
+    return response()->json($data);    
+    }
     public function addproduct(Request $request){
         // $this->validate([
         //     'name'=>'required',

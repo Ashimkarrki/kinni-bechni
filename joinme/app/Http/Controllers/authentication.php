@@ -10,7 +10,7 @@ class authentication extends Controller
 {
     public function signup(Request $request){
         // $message = ['email.required'=>"Something is wrong",'name.required'=>"name is wrong",'password.required'=>"password is wrong",'confirm_password.required'=>"password is wrong"];
-        // $this->validate([
+        // $request->validate([
         //     'email'=>'required | max:20',
         //     'name'=>'required | max:20',
         //     'password'=>'required|min:8|max:13',
