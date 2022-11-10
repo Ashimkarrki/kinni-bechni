@@ -28,3 +28,4 @@ Route::get("/storage/app/public", function(){
     return response()->file('/storage/app/public/test.jpg');
 });
 Route::post('/addproduct', [ProductController::class, 'addproduct']);
+Route::post('/getproduct', [ProductController::class, 'returnproduct']);
