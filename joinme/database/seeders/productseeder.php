@@ -21,8 +21,8 @@ class productseeder extends Seeder
             $product_seeder = new product;
             $product_seeder->Name= $faker->name;
             $product_seeder->stock=$faker->numberBetween(1, 1000);
-            $product_seeder->price=$faker->randomFloat(2);
-            $product_seeder->description=$faker->paragraph;
+            $product_seeder->price=$faker->randomFloat(2, 10 , 5000);
+            $product_seeder->description=$faker->paragraph(2, true);
             $product_seeder->fileName= "storage/app/products/test.jpg";//$faker->image("storage/app/products/", 300, 300, false);
             $product_seeder->save();
         }

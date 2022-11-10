@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\book;
+use App\Models\equipments;
+use App\Models\notes;
 
 class ProductController extends Controller
 {
@@ -23,15 +26,64 @@ class ProductController extends Controller
         //     'stock'=>'required',
         //     'price'=>'required'
         // ]);
-        $addproduct_instance = new product;
-        $addproduct_instance->Name =$request->name;
-        $addproduct_instance->stock= $request->stock;
-        $addproduct_instance->price=$request->price;
-        $addproduct_instance->description=$request->description;
-        $addproduct_instance->fileName=$request->file('file')->store('products');
-        $addproduct_instance->save();
-        return response()->json([
-            "message"=>"Added Product successfully"
-        ]);
+        if($request->category==="books"){
+            $addproduct_instance = new book;
+            $addproduct_instance->name =$request->name;
+            $addproduct_instance->stock= $request->stock;
+            $addproduct_instance->price=$request->price;
+            $addproduct_instance->faculty=$request->faculty;
+            $addproduct_instance->edition=$request->edition;
+            $addproduct_instance->category=$request->category;
+            $addproduct_instance->subjectName=$request->subjectName;
+            $addproduct_instance->authorName=$request->authorName;
+            $addproduct_instance->description=$request->description;
+            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
+            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            $addproduct_instance->save();
+            return response()->json([
+                "message"=>"Added Product successfully"
+            ]);
+        }
+        elseif($request->category==="equipments"){
+            $addproduct_instance = new equipments;
+            $addproduct_instance->name =$request->name;
+            $addproduct_instance->stock= $request->stock;
+            $addproduct_instance->price=$request->price;
+            $addproduct_instance->category=$request->category;
+            $addproduct_instance->faculty=$request->faculty;
+            $addproduct_instance->description=$request->description;
+            $addproduct_instance->subCategory=$request->subCategory;
+            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
+            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            $addproduct_instance->save();
+            return response()->json([
+                "message"=>"Added Product successfully"
+            ]);
+        }
+        elseif($request->category==="notes"){
+            $addproduct_instance = new notes;
+            $addproduct_instance->name =$request->name;
+            $addproduct_instance->stock= $request->stock;
+            $addproduct_instance->price=$request->price;
+            $addproduct_instance->faculty=$request->faculty;
+            $addproduct_instance->category=$request->category;
+            $addproduct_instance->description=$request->description;
+            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
+            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            $addproduct_instance->save();
+            return response()->json([
+                "message"=>"Added Product successfully"
+            ]);
+        }
+        else{
+            return response()->json([
+                "message"=>"Out OF bound category"
+            ]);
+
+        }
+
     }
 };
