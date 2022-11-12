@@ -10,6 +10,9 @@ use App\Models\notes;
 
 class ProductController extends Controller
 {
+
+
+
     public function homepage(Request $request){ 
     $numbers = 1;
     for ($id=454; $id<465; $id++){
@@ -20,6 +23,11 @@ class ProductController extends Controller
     }
     return response()->json($data);    
     }
+
+
+
+
+
     public function addproduct(Request $request){
         // $this->validate([
         //     'name'=>'required',
@@ -86,4 +94,31 @@ class ProductController extends Controller
         }
 
     }
+
+
+
+
+    public function returnproduct(Request $request){
+        $model_name = $request->category;
+        $id = $request->id;
+        if($model_name == "books"){
+            $data = book::find($id);
+            return response() -> json($data);
+        }
+        elseif($model_name == "notes"){
+            $data = notes::find($id);
+            return response() -> json($data);
+        }
+        elseif($model_name == "equipments"){
+            $data = equipments::find($id);
+            return response() -> json($data);
+        }
+        else{
+            return response()->json([
+                "message" => "Unexpected error occured"
+        ]);
+        }}
+
+
+
 };
