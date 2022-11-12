@@ -23,7 +23,7 @@ const SignupCard = () => {
       onSubmit={(e) => {
         e.preventDefault();
         axios
-          .post("/link hala", userInfo)
+          .post("http://localhost/api/signup", userInfo)
           .then((res) => console.log(res))
           .catch((err) => console.log(err));
       }}

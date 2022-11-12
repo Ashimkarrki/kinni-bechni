@@ -7,7 +7,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 function App() {
   let location = useLocation();
-  console.log(location.pathname);
+
   return (
     <div className="App">
       {location.pathname === "/signup" || location.pathname === "/login" ? (

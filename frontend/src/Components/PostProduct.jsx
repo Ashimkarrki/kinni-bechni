@@ -61,6 +61,7 @@ const PostProduct = ({ setIsmodalOpen }) => {
             url={imageUrl.filter((item) => item.url)[0].url}
             category={category}
             imageUrl={imageUrl}
+            setIsmodalOpen={setIsmodalOpen}
           />
         )}
       </div>

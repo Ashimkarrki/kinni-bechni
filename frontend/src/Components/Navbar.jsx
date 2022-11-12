@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
 import { IoIosAdd } from "react-icons/io";
 import PostProduct from "./PostProduct";
+import toast, { Toaster } from "react-hot-toast";
+
 const Navbar = () => {
   const [ismodalOpen, setIsmodalOpen] = useState(false);
+
   return (
     <div>
       <nav className="navbar">
+        <Toaster />
+
         <h3 className="navbar__child">
           <Link className="link" to="/">
             Logo

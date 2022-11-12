@@ -9,7 +9,7 @@ const PostProductStep2 = ({
   setProductDetail,
   productDetail,
 }) => {
-  if (category === "Books")
+  if (category === "books")
     return (
       <Books
         setStep={setStep}
@@ -17,7 +17,7 @@ const PostProductStep2 = ({
         productDetail={productDetail}
       />
     );
-  if (category === "Equipments")
+  if (category === "equipments")
     return (
       <Equipments
         setStep={setStep}
@@ -25,7 +25,7 @@ const PostProductStep2 = ({
         productDetail={productDetail}
       />
     );
-  if (category === "Notes")
+  if (category === "notes")
     return (
       <Notes
         setStep={setStep}

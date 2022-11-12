@@ -22,12 +22,12 @@ const PostProductStep1 = ({
         <button
           className="postproduct__choose__button"
           onClick={() => {
-            clickHandeler("Books");
+            clickHandeler("books");
           }}
         >
           <ImBooks
             className={`postproduct__choose__icons ${
-              category === "Books" ? "category__icon__selected" : ""
+              category === "books" ? "category__icon__selected" : ""
             }`}
           />
           Books
@@ -36,12 +36,12 @@ const PostProductStep1 = ({
         <button
           className="postproduct__choose__button"
           onClick={() => {
-            clickHandeler("Notes");
+            clickHandeler("notes");
           }}
         >
           <GiNotebook
             className={`postproduct__choose__icons ${
-              category === "Notes" ? "category__icon__selected" : ""
+              category === "notes" ? "category__icon__selected" : ""
             }`}
           />
           Notes
@@ -49,12 +49,12 @@ const PostProductStep1 = ({
         <button
           className="postproduct__choose__button"
           onClick={() => {
-            clickHandeler("Equipments");
+            clickHandeler("equipments");
           }}
         >
           <BsTools
             className={`postproduct__choose__icons ${
-              category === "Equipments" ? "category__icon__selected" : ""
+              category === "equipments" ? "category__icon__selected" : ""
             }`}
           />
           Equipments
