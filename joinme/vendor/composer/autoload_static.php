@@ -524,7 +524,7 @@ class ComposerStaticInit93ea49379db3f481387f0669c5460572
         'App\\Models\\book' => __DIR__ . '/../..' . '/app/Models/book.php',
         'App\\Models\\equipments' => __DIR__ . '/../..' . '/app/Models/equipments.php',
         'App\\Models\\notes' => __DIR__ . '/../..' . '/app/Models/notes.php',
-        'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
+        'App\\Models\\products' => __DIR__ . '/../..' . '/app/Models/products.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

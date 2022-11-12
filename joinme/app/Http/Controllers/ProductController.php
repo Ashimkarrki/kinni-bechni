@@ -7,6 +7,7 @@ use App\Models\product;
 use App\Models\book;
 use App\Models\equipments;
 use App\Models\notes;
+use App\Models\products;
 
 class ProductController extends Controller
 {
@@ -14,16 +15,14 @@ class ProductController extends Controller
 
 
     public function homepage(Request $request){ 
-    $numbers = 1;
-    for ($id=454; $id<465; $id++){
-        $datas = product::find($id);
-//        $prod_json = json("products"->$datas);
-        $data[$numbers] = $datas;
-        $numbers++;
+    $books_data = book::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
+    $equipments_data = equipments::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
+    $notes_data = notes::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
+    array_merge($books_data, $equipments_data);
+    array_merge($books_data, $notes_data);
+    shuffle($books_data);
+    return response()->json(array_slice($books_data, 0, 30));
     }
-    return response()->json($data);    
-    }
-
 
 
 
@@ -46,9 +45,27 @@ class ProductController extends Controller
             $addproduct_instance->authorName=$request->authorName;
             $addproduct_instance->description=$request->description;
             $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
-            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
-            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            if($request->file('fileName2')!==null){
+                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+            if($request->file('fileName3')!==null){
+                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            }
             $addproduct_instance->save();
+            
+            $common_product_instance = new products;
+            $common_product_instance->name =$request->name;
+            $common_product_instance->stock= $request->stock;
+            $common_product_instance->price=$request->price;
+            $common_product_instance->faculty=$request->faculty;
+            $common_product_instance->edition=$request->edition;
+            $common_product_instance->category=$request->category;
+            $common_product_instance->subjectName=$request->subjectName;
+            $common_product_instance->authorName=$request->authorName;
+            $common_product_instance->description=$request->description;
+            $common_product_instance->fileName1=$request->file('fileName1');
+            $common_product_instance->fileName2=$request->file('fileName2');
+            $common_product_instance->fileName3=$request->file('fileName3');
+            $common_product_instance->save();
             return response()->json([
                 "message"=>"Added Product successfully"
             ]);
@@ -63,9 +80,24 @@ class ProductController extends Controller
             $addproduct_instance->description=$request->description;
             $addproduct_instance->subCategory=$request->subCategory;
             $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
-            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
-            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            if($request->file('fileName2')!==null){
+                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+            if($request->file('fileName3')!==null){
+                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            }
             $addproduct_instance->save();
+            $common_product_instance = new products;
+            $common_product_instance->name =$request->name;
+            $common_product_instance->stock= $request->stock;
+            $common_product_instance->price=$request->price;
+            $common_product_instance->category=$request->category;
+            $common_product_instance->faculty=$request->faculty;
+            $common_product_instance->description=$request->description;
+            $common_product_instance->subCategory=$request->subCategory;
+            $common_product_instance->fileName1=$request->file('fileName1');
+            $common_product_instance->fileName2=$request->file('fileName2');
+            $common_product_instance->fileName3=$request->file('fileName3');
+            $common_product_instance->save();
             return response()->json([
                 "message"=>"Added Product successfully"
             ]);
@@ -79,9 +111,24 @@ class ProductController extends Controller
             $addproduct_instance->category=$request->category;
             $addproduct_instance->description=$request->description;
             $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
-            $addproduct_instance->fileName2=$request->file('fileName2')->store('products');
-            $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            if($request->file('fileName2')!==null){
+                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+            if($request->file('fileName3')!==null){
+                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+            }
             $addproduct_instance->save();
+
+            $common_product_instance = new products;
+            $common_product_instance->name =$request->name;
+            $common_product_instance->stock= $request->stock;
+            $common_product_instance->price=$request->price;
+            $common_product_instance->faculty=$request->faculty;
+            $common_product_instance->category=$request->category;
+            $common_product_instance->description=$request->description;
+            $common_product_instance->fileName1=$request->file('fileName1');
+            $common_product_instance->fileName2=$request->file('fileName2');
+            $common_product_instance->fileName3=$request->file('fileName3');
+            $common_product_instance->save();
             return response()->json([
                 "message"=>"Added Product successfully"
             ]);

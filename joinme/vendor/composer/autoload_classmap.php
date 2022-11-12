@@ -25,7 +25,7 @@ return array(
     'App\\Models\\book' => $baseDir . '/app/Models/book.php',
     'App\\Models\\equipments' => $baseDir . '/app/Models/equipments.php',
     'App\\Models\\notes' => $baseDir . '/app/Models/notes.php',
-    'App\\Models\\product' => $baseDir . '/app/Models/product.php',
+    'App\\Models\\products' => $baseDir . '/app/Models/products.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
