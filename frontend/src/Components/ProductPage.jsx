@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const ProductPage = () => {
   const [group, setGroup] = useState("popular");
+  // const query=useQuery()
   var data = [];
   for (let i = 0; i < 10; i++) {
     data[i] = {
