@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('fileName2')->nullable();
             $table->string('fileName3')->nullable();
             $table->string('subCategory')->nullable();
-            $table->integer("id2");
+            $table->integer("id2")->nullable();
         });
     }
 
