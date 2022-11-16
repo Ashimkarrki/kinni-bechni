@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\auth;
-use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Hash;
 
 class authentication extends Controller
 
@@ -39,8 +39,10 @@ class authentication extends Controller
     
     public function login(Request $request){
         $user = auth::where('email', $request->email)->first();
-        if (hash::make($request->password)===$user->password){
+        if (Hash::check($request-> password, $user->password)){
+            $token = $user->createToken('auth_token')->plainTextToken;
             return Response()->json([
+                "token" => $token,
                 "Status"=>200,
                 "Message"=>"User Logged in successfully"
             ]);
