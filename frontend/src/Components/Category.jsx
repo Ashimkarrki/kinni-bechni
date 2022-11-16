@@ -1,27 +1,23 @@
 import React, { useState } from "react";
-
+// /https://run.mocky.io/v3/69bb35ba-eda5-4e8f-aa07-9853373f7355;
 const Category = () => {
   const [category] = useState([
     {
-      name: "Workshop",
+      name: "Notes",
       total: 23,
     },
     {
-      name: "Drawing",
+      name: "Equipments",
       total: 90,
     },
     {
       name: "Books",
       total: 89,
     },
-    {
-      name: "Notes",
-      total: 18,
-    },
   ]);
   return (
     <div className="category">
-      <h4 className="category__heading">Available Category</h4>
+      <h4 className="category__heading">Category</h4>
       <ul className="category__list">
         {category.map((s, index) => {
           return (

@@ -85,3 +85,9 @@
   background-color: #ebb134;
   color: #fff;
 }
+@media (max-width: 800px) {
+  .productPage {
+    margin-left: 0;
+    width: 100%;
+  }
+}

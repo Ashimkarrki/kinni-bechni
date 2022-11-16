@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import { faker } from "@faker-js/faker";
 import { CiFilter } from "react-icons/ci";
-import { v4 as uuidv4 } from "uuid";
 import ProductCard from "./ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 const ProductPage = () => {
   const [group, setGroup] = useState("popular");
-  // const query=useQuery()
-  var data = [];
-  for (let i = 0; i < 10; i++) {
-    data[i] = {
-      name: faker.vehicle.vehicle(),
-      price: faker.random.numeric(3),
-      stock: faker.random.numeric(1),
-      image: faker.image.cats(480, 720, true),
-      description: faker.lorem.paragraph(),
-      id: uuidv4(),
-    };
-  }
-  const [products] = useState(data);
+  const fetchHomeProducts = async () => {
+    const data = await axios.get(
+      "https://run.mocky.io/v3/b77b76c1-ace8-401d-90e5-91a791182e25"
+    );
+    return data.data;
+  };
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["fetchHomeProducts"],
+    queryFn: fetchHomeProducts,
+    staleTime: 300000,
+    cacheTime: 300000,
+  });
+  if (isLoading) return <h1>Loading</h1>;
+  if (isError) return <h1>Error Occured : {error.message}</h1>;
   return (
     <div className="productPage">
       <div className="productPage--flex">
@@ -45,16 +44,16 @@ const ProductPage = () => {
         </button>
       </div>
       <div className="productPage--grid">
-        {products.map((s) => {
+        {data?.map((s) => {
           return (
             <ProductCard
               key={s.id}
-              image={s.image}
+              image={s.fileName1}
               name={s.name}
               price={s.price}
               stock={s.stock}
               description={s.description}
-              category={"Books"}
+              category={s.category}
             />
           );
         })}

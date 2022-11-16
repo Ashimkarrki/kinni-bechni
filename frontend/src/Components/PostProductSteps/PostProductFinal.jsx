@@ -14,6 +14,7 @@ const PostProductFinal = ({
   // success,
 }) => {
   const success = () => toast.success("Successfully Posted!");
+  const failure = () => toast.error("Something Is Not  Right!");
 
   const mutation = useMutation({
     mutationFn: (data) => {
@@ -21,9 +22,8 @@ const PostProductFinal = ({
       return axios.post("http://localhost/api/addproduct", data);
     },
     onSuccess: () => {
-      success();
-
       setIsmodalOpen(false);
+      success();
     },
     onError: () => {
       failure();

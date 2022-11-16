@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar">
-        <Toaster />
+        <Toaster position="bottom-left" />
 
         <h3 className="navbar__child">
           <Link className="link" to="/">

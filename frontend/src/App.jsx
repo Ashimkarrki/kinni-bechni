@@ -5,6 +5,8 @@ import Category from "./Components/Category";
 import Login from "./Pages/Login";
 import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
+import SingleProduct from "./Components/SingleProduct";
+import Footer from "./Components/Footer";
 function App() {
   let location = useLocation();
 
@@ -23,8 +25,10 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/singleproduct" element={<SingleProduct />}></Route>
         {/* <Route path="/product" element={<Login />}></Route> */}
       </Routes>
+      <Footer />
     </div>
   );
 }

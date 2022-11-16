@@ -1,6 +1,7 @@
 @mixin brute-way {
   width: 8rem;
   height: 8rem;
+  min-width: 6rem;
 }
 
 .postproduct {
@@ -35,7 +36,9 @@
       color: grey;
     }
     &__button {
+      // width: max(12rem, 25%);
       width: 25%;
+      min-width: 5.5rem;
       height: 7rem;
       background-color: inherit;
       border: $box-border;
@@ -95,7 +98,7 @@
   font-weight: 600;
   color: black;
   font-size: 14px;
-  padding: 10px 12px;
+  // padding: 10px 12px;
   border: 2px dotted #4245a8;
   position: absolute;
 }
@@ -177,4 +180,31 @@
 }
 .demo-wrapper {
   width: 15rem;
+}
+@media (max-width: 925px) {
+  .postproduct {
+    width: 90%;
+  }
+}
+@media (max-width: 360px) {
+  .postproduct__choose {
+    justify-content: center;
+  }
+}
+@media (max-width: 553px) {
+  .file-input__label {
+    width: 6rem;
+    height: 6rem;
+  }
+  .uploadedImagePreview {
+    width: 6rem;
+    height: 6rem;
+  }
+  .file-input {
+    width: 6rem;
+    height: 6rem;
+  }
+  .upload-image {
+    gap: 0.5rem;
+  }
 }

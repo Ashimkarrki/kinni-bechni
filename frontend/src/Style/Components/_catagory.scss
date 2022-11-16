@@ -1,10 +1,12 @@
 .category {
+  position: fixed;
   width: 15%;
   height: 30rem;
   top: 5rem;
   left: 0;
+  bottom: 10rem;
+  z-index: 1;
   background-color: beige;
-  position: fixed;
   padding: 1.8rem 1rem 0 1rem;
 
   &__heading {
@@ -24,5 +26,10 @@
     &:hover {
       border-bottom: $box-border;
     }
+  }
+}
+@media (max-width: 800px) {
+  .category {
+    display: none;
   }
 }

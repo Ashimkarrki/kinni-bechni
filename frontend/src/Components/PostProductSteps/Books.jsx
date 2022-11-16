@@ -53,6 +53,7 @@ const Books = ({ setProductDetail, setStep, productDetail }) => {
         name="faculty"
       />
       <input
+        min="0"
         type="number"
         className="step2--input"
         placeholder="Edition"
@@ -62,6 +63,7 @@ const Books = ({ setProductDetail, setStep, productDetail }) => {
         onChange={changeHandeler}
       />
       <input
+        min="0"
         type="number"
         className="step2--input"
         placeholder="Stock"
