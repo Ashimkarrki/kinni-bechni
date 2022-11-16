@@ -129,6 +129,7 @@ class ProductController extends Controller
             $common_product_instance->fileName2=$request->file('fileName2');
             $common_product_instance->fileName3=$request->file('fileName3');
             $common_product_instance->save();
+
             return response()->json([
                 "message"=>"Added Product successfully"
             ]);
