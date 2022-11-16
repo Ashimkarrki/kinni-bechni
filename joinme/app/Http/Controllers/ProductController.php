@@ -18,10 +18,8 @@ class ProductController extends Controller
     $books_data = book::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
     $equipments_data = equipments::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
     $notes_data = notes::where('stock',">",0)->inRandomOrder()->get()->take(30)->toArray();
-    array_merge($books_data, $equipments_data);
-    array_merge($books_data, $notes_data);
-    shuffle($books_data);
-    return response()->json(array_slice($books_data, 0, 30));
+    $data_collection = array_merge($books_data, $equipments_data, $notes_data);
+    return response()->json(array_slice($data_collection, 0, 30));
     }
 
 

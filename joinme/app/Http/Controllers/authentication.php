@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\auth;
-class authentication extends Controller
+use Illuminate\Support\Facades;
 
+class authentication extends Controller
 
 {
     public function signup(Request $request){
@@ -21,7 +22,7 @@ class authentication extends Controller
                 $usercontroller_inst = new auth;
                 $usercontroller_inst->email = $request->email;
                 $usercontroller_inst->name = $request->name;
-                $usercontroller_inst ->password = $request-> password;
+                $usercontroller_inst ->password = hash::make($request-> password);
                 $usercontroller_inst ->college = $request ->college;
                 $usercontroller_inst->save();
                 return response()->json([
@@ -38,7 +39,7 @@ class authentication extends Controller
     
     public function login(Request $request){
         $user = auth::where('email', $request->email)->first();
-        if ($request->password===$user->password){
+        if (hash::make($request->password)===$user->password){
             return Response()->json([
                 "Status"=>200,
                 "Message"=>"User Logged in successfully"
