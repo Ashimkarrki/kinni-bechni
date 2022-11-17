@@ -2,6 +2,7 @@
   width: 85%;
   margin-left: 15%;
   padding: 1.8rem;
+  min-height: 100vh;
   &--grid {
     margin-top: 1.8rem;
     display: grid;
@@ -27,6 +28,7 @@
 
 .productCard {
   position: relative;
+  text-transform: capitalize;
 
   height: 21rem;
   padding: 8px;
@@ -69,7 +71,6 @@
   left: -3px;
 }
 .ribbon {
-  text-transform: capitalize;
   font: bold 10px sans-serif;
   color: #333;
   text-align: center;

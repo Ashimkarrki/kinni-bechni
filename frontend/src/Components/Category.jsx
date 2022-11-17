@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // /https://run.mocky.io/v3/69bb35ba-eda5-4e8f-aa07-9853373f7355;
-const Category = () => {
+const Category = ({ isSideBarOpen }) => {
   const [category] = useState([
     {
       name: "Notes",
@@ -16,7 +16,11 @@ const Category = () => {
     },
   ]);
   return (
-    <div className="category">
+    <div
+      className={`category ${
+        isSideBarOpen ? "sidebar-open" : "sidebar-closed"
+      }`}
+    >
       <h4 className="category__heading">Category</h4>
       <ul className="category__list">
         {category.map((s, index) => {

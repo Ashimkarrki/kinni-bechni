@@ -7,7 +7,10 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
+import { useState } from "react";
 function App() {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
   let location = useLocation();
   return (
     <div className="App">
@@ -15,8 +18,11 @@ function App() {
         ""
       ) : (
         <>
-          <Navbar />
-          <Category />
+          <Navbar
+            setIsSideBarOpen={setIsSideBarOpen}
+            isSideBarOpen={isSideBarOpen}
+          />
+          <Category isSideBarOpen={isSideBarOpen} />
         </>
       )}
 

@@ -4,10 +4,9 @@ import { BiSearchAlt } from "react-icons/bi";
 import { IoIosAdd } from "react-icons/io";
 import PostProduct from "./PostProduct";
 import toast, { Toaster } from "react-hot-toast";
-
-const Navbar = () => {
+import { AiOutlineMenu } from "react-icons/ai";
+const Navbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
   const [ismodalOpen, setIsmodalOpen] = useState(false);
-
   return (
     <div>
       <nav className="navbar">
@@ -38,6 +37,12 @@ const Navbar = () => {
             Log In
           </Link>
         </h3>
+        <AiOutlineMenu
+          onClick={() => {
+            setIsSideBarOpen(!isSideBarOpen);
+          }}
+          className="sidebar-toggle"
+        />
       </nav>
       {ismodalOpen && <PostProduct setIsmodalOpen={setIsmodalOpen} />}
     </div>

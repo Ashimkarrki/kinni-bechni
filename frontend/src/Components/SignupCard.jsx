@@ -8,11 +8,11 @@ import axios from "axios";
 
 const SignupCard = () => {
   const [userInfo, setUserInfo] = useState({
-    userName: "",
-    collage: "",
+    name: "",
+    college: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirm_password: "",
   });
   const changeHandeler = (e) => {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -35,7 +35,7 @@ const SignupCard = () => {
         <input
           placeholder="Full Name"
           type="text"
-          name="userName"
+          name="name"
           required
           onChange={changeHandeler}
           className="register__child register__child--box"
@@ -51,7 +51,7 @@ const SignupCard = () => {
             className="register__child register__child--box"
           /> */}
         <select
-          name="collage"
+          name="college"
           onChange={changeHandeler}
           className="register__child register__child--box register__child--select"
           id="collage_name"
@@ -104,7 +104,7 @@ const SignupCard = () => {
         <input
           type="password"
           required
-          name="confirmPassword"
+          name="confirm_password"
           onChange={changeHandeler}
           placeholder="Confirm Password"
           className="register__child register__child--box"

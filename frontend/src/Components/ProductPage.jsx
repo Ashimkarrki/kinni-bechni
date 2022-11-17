@@ -3,13 +3,14 @@ import { CiFilter } from "react-icons/ci";
 import ProductCard from "./ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Empty from "./Empty";
 const ProductPage = () => {
   const [group, setGroup] = useState("popular");
   const fetchHomeProducts = async () => {
     const data = await axios.get("http://localhost/api");
     return data.data;
   };
-  const { isLoading, isError, data, error } = useQuery({
+  const { isLoading, isError, data, error, isFetched } = useQuery({
     queryKey: ["fetchHomeProducts"],
     queryFn: fetchHomeProducts,
     staleTime: 300000,
@@ -17,6 +18,7 @@ const ProductPage = () => {
   });
   if (isLoading) return <h1>Loading</h1>;
   if (isError) return <h1>Error Occured : {error.message}</h1>;
+  if (isFetched && !data[0]) return <Empty />;
   return (
     <div className="productPage">
       <div className="productPage--flex">

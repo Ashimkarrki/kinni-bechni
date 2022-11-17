@@ -33,3 +33,11 @@
     cursor: pointer;
   }
 }
+.sidebar-toggle {
+  display: none;
+}
+@media (max-width: 800px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
