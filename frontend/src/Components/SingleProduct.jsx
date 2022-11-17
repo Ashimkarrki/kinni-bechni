@@ -1,8 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 const SingleProduct = () => {
+  const { id, category } = useParams();
+
   const [headPic, setHeadPic] = useState("");
   const [choosen, setChoosen] = useState(1);
+  const [data, setData] = useState({});
+
+  const mutate = useMutation({
+    mutationFn: async () => {
+      const data = await axios.post("http://localhost/api/getproduct", {
+        id,
+        category,
+      });
+      return data.data;
+    },
+    onSuccess: (data) => {
+      setData(data);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+  useEffect(() => {
+    mutate.mutate();
+  }, []);
+
   const [book, setBook] = useState({
     id: 1,
     authorName: "Bill Gates",
@@ -39,11 +65,15 @@ const SingleProduct = () => {
       <div className="single-product--left">
         <img
           className="head-image"
-          src={headPic ? headPic : book.fileName1}
+          src={
+            headPic
+              ? headPic
+              : "https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2020/05/7-Tips-to-Finding-Art-Inspiration-Header-1024x649.jpg"
+          }
           alt="product image"
         />
 
-        {book.fileName2 ? (
+        {data.fileName2 ? (
           <img
             onClick={(e) => {
               setHeadPic(e.target.src);
@@ -52,14 +82,14 @@ const SingleProduct = () => {
             className={`pic-options  pic-options--left ${
               choosen === 2 ? "pic-selected" : ""
             }`}
-            src={book.fileName2}
+            src={data.fileName2}
             alt="product image"
           />
         ) : (
           ""
         )}
 
-        {book.fileName3 ? (
+        {data.fileName3 ? (
           <img
             onClick={(e) => {
               setHeadPic(e.target.src);
@@ -68,13 +98,13 @@ const SingleProduct = () => {
             className={`pic-options pic-options--middle ${
               choosen === 3 ? "pic-selected" : ""
             }`}
-            src={book.fileName3}
+            src={data.fileName3}
             alt="product image"
           />
         ) : (
           ""
         )}
-        {book.fileName1 ? (
+        {data.fileName1 ? (
           <img
             onClick={(e) => {
               setHeadPic(e.target.src);
@@ -83,7 +113,9 @@ const SingleProduct = () => {
             className={`pic-options  pic-options--left ${
               choosen === 1 ? "pic-selected" : ""
             }`}
-            src={book.fileName1}
+            src={
+              "https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2020/05/7-Tips-to-Finding-Art-Inspiration-Header-1024x649.jpg"
+            }
             alt="product image"
           />
         ) : (
@@ -91,10 +123,10 @@ const SingleProduct = () => {
         )}
       </div>
       <div className="about-product">
-        <h2 className="about-product__heading">{book.name}</h2>
+        <h2 className="about-product__heading">{data.name}</h2>
 
         <ol className="about-product__list">
-          {Object.keys(book)
+          {Object.keys(data)
             .filter((s) => {
               return (
                 s !== "created_at" &&
@@ -112,13 +144,13 @@ const SingleProduct = () => {
             .map((item, index) => {
               return (
                 <li className="about-product__list" key={index}>
-                  {modify[item]} : {book[item]}
+                  {modify[item]} : {data[item]}
                 </li>
               );
             })}
-          <li className="about-product__list">Price : रु{book.price}</li>
+          <li className="about-product__list">Price : रु {data.price}</li>
           <li className="about-product__list">
-            Description : {book.description}
+            Description : {data.description}
           </li>
         </ol>
       </div>

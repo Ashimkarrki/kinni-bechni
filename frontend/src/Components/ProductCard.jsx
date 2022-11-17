@@ -1,8 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ image, name, price, stock, description, category }) => {
+const ProductCard = ({
+  image,
+  name,
+  id,
+  price,
+  stock,
+  description,
+  category,
+}) => {
   return (
-    <div className="productCard productCard--box-shadow">
+    <Link
+      to={`/product/${category}/${id}`}
+      className="productCard productCard--box-shadow link"
+    >
       <div className="ribbon-wrapper">
         <p className="ribbon">{category}</p>
       </div>
@@ -11,7 +23,7 @@ const ProductCard = ({ image, name, price, stock, description, category }) => {
       <h5>रु {price}</h5>
       <h5>{stock}(In Stock)</h5>
       <p className="productCard__description">{description}</p>
-    </div>
+    </Link>
   );
 };
 

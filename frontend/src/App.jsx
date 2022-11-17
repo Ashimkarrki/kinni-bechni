@@ -9,7 +9,6 @@ import SingleProduct from "./Components/SingleProduct";
 import Footer from "./Components/Footer";
 function App() {
   let location = useLocation();
-
   return (
     <div className="App">
       {location.pathname === "/signup" || location.pathname === "/login" ? (
@@ -25,8 +24,10 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/singleproduct" element={<SingleProduct />}></Route>
-        {/* <Route path="/product" element={<Login />}></Route> */}
+        <Route
+          path="/product/:category/:id"
+          element={<SingleProduct />}
+        ></Route>
       </Routes>
       <Footer />
     </div>

@@ -6,9 +6,7 @@ import axios from "axios";
 const ProductPage = () => {
   const [group, setGroup] = useState("popular");
   const fetchHomeProducts = async () => {
-    const data = await axios.get(
-      "https://run.mocky.io/v3/b77b76c1-ace8-401d-90e5-91a791182e25"
-    );
+    const data = await axios.get("http://localhost/api");
     return data.data;
   };
   const { isLoading, isError, data, error } = useQuery({
@@ -47,8 +45,11 @@ const ProductPage = () => {
         {data?.map((s) => {
           return (
             <ProductCard
-              key={s.id}
-              image={s.fileName1}
+              id={s.id}
+              key={s.id + s.category}
+              image={
+                "https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2020/05/7-Tips-to-Finding-Art-Inspiration-Header-1024x649.jpg"
+              }
               name={s.name}
               price={s.price}
               stock={s.stock}
