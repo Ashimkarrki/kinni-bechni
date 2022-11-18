@@ -8,6 +8,8 @@ use App\Models\book;
 use App\Models\equipments;
 use App\Models\notes;
 use App\Models\products;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -42,13 +44,15 @@ class ProductController extends Controller
             $addproduct_instance->subjectName=$request->subjectName;
             $addproduct_instance->authorName=$request->authorName;
             $addproduct_instance->description=$request->description;
-            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName1=$request->file('fileName1');
             if($request->file('fileName2')!==null){
-                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+                $addproduct_instance->fileName2=$request->file('fileName2');}
             if($request->file('fileName3')!==null){
-                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+                $addproduct_instance->fileName3=$request->file('fileName3');
             }
             $addproduct_instance->save();
+            $request->file('fileName1') ? Storage::disk('local')->put('/public',$request->fileName1) : null;
+
             
             $common_product_instance = new products;
             $common_product_instance->name =$request->name;
@@ -77,11 +81,11 @@ class ProductController extends Controller
             $addproduct_instance->faculty=$request->faculty;
             $addproduct_instance->description=$request->description;
             $addproduct_instance->subCategory=$request->subCategory;
-            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName1=$request->file('fileName1');
             if($request->file('fileName2')!==null){
-                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+                $addproduct_instance->fileName2=$request->file('fileName2');}
             if($request->file('fileName3')!==null){
-                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+                $addproduct_instance->fileName3=$request->file('fileName3');
             }
             $addproduct_instance->save();
             $common_product_instance = new products;
@@ -108,11 +112,11 @@ class ProductController extends Controller
             $addproduct_instance->faculty=$request->faculty;
             $addproduct_instance->category=$request->category;
             $addproduct_instance->description=$request->description;
-            $addproduct_instance->fileName1=$request->file('fileName1')->store('products');
+            $addproduct_instance->fileName1=$request->file('fileName1');
             if($request->file('fileName2')!==null){
-                $addproduct_instance->fileName2=$request->file('fileName2')->store('products');}
+                $addproduct_instance->fileName2=$request->file('fileName2');}
             if($request->file('fileName3')!==null){
-                $addproduct_instance->fileName3=$request->file('fileName3')->store('products');
+                $addproduct_instance->fileName3=$request->file('fileName3');
             }
             $addproduct_instance->save();
 
