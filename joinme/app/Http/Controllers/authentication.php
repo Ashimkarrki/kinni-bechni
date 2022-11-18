@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\auth;
 use Illuminate\Support\Facades\Hash;
-
+use Laravel\Passport\HasApiTokens;
 class authentication extends Controller
-
 {
+
     public function signup(Request $request){
         // $message = ['email.required'=>"Something is wrong",'name.required'=>"name is wrong",'password.required'=>"password is wrong",'confirm_password.required'=>"password is wrong"];
         // $request->validate([

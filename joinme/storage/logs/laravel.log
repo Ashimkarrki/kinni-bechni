@@ -14845,3 +14845,27 @@ Did you mean this?
 #46 /var/www/html/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #47 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(16): require_once('...')
 #48 {main}
+[2022-11-18 04:58:51] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Models/auth.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2022-11-18 04:59:43] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Models/auth.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2022-11-18 05:05:04] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Models/auth.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2022-11-18 05:20:34] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Models/auth.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2022-11-18 05:25:36] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Http/Controllers/authentication.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2022-11-18 05:26:56] local.ERROR: Trait "Laravel\Passport\HasApiTokens" not found {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Trait \"Laravel\\Passport\\HasApiTokens\" not found at /var/www/html/app/Models/auth.php:9)
+[stacktrace]
+#0 {main}
+"} 
